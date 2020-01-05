@@ -7,6 +7,9 @@
     flex-wrap: wrap;
     background: #f0f0f0;
 }
+.contentArea{
+    padding: 36px;
+}
 .nameSection{
     width: 100%;
     min-width: 360px;

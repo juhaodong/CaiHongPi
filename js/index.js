@@ -35,17 +35,17 @@ let partStart=[
     "我会不由自主的去设想我们的未来，",
     "我每天晚上都彻夜难眠，总是在想，",
     "我不知道该怎么说了，我从没有过这样的感觉，",
-    "NAME,",
-    "NAME,这些话我从来没有对其他人说过,",
+    "NAME，",
+    "NAME,这些话我从来没有对其他人说过，",
     "我现在只想对你说，",
     "你听着，我有一句话想对你说，"
 
 ];
 let sentenceStart=[
     "",
-    "NAME!",
+    "NAME！",
     "NAME，",
-    "说老实话,",
+    "说老实话，",
     "小宝贝，",
 
 ];
@@ -53,8 +53,9 @@ let sentenceEnd=[
     "，NAME，这就是我对你的感觉。",
     "，你一定不能想象。",
     "，你就是我的一切了。",
-    ",这都是我的心里话。",
+    "，这都是我的心里话。",
     "，你没想到吧。",
+    ""
 
 ];
 let partEnd=[
@@ -63,8 +64,11 @@ let partEnd=[
     "像这样的话，我给你讲一年都不会腻。",
 
 ];
+const startProb=30;
+const endProb=30;
 let caihongpi=CHP;
- qinghua=[];
+let qinghua=QH;
+console.log(QH);
 
 function getRandomThing(arr,name) {
     let min=0;
@@ -73,38 +77,44 @@ function getRandomThing(arr,name) {
         return "";
     }
     let random=getRandom(parseInt(min),parseInt(max));
-    return replaceAll(arr[random],"NAME",name);
+    let result=replaceAll(arr[random],"XXX",name);
+    return replaceAll(result,"NAME",name);
 }
 function getRandomItem(arr) {
     return arr[getRandom(0,arr.length-1)];
 }
 function generateSentence(name) {
     let sentence="";
-    if(getRandom(0,100)>60){
+    if(getRandom(0,100)>startProb){
         sentence+=getRandomThing(sentenceStart,name);
     }
     let mainPart=getRandomItem([caihongpi,qinghua]);
     sentence+=getRandomThing(mainPart,name);
-    if(getRandom(0,100)>70){
+    if(getRandom(0,100)>endProb){
         sentence+=getRandomThing(sentenceEnd,name);
     }
-    if(sentence[length-1]!=="。"){
-        sentence+="。";
-    }
-    return sentence;
+
+    return addDot(sentence);
     
+}
+function addDot(str) {
+    if(str[str.length-1]!=="。"){
+        console.log(str[str.length-1]);
+        str+="。";
+    }
+    return str;
 }
 function generatePart(name) {
     let part="<p class='flow-text'>";
-    if(getRandom(0,100)>60){
+    if(getRandom(0,100)>startProb){
         part+=getRandomThing(partStart,name);
     }
-    let sentenceCount=getRandom(2,10);
+    let sentenceCount=getRandom(8,40);
     for(let i=0;i<sentenceCount;i++){
         console.log("句子" +i);
         part+=generateSentence(name);
     }
-    if(getRandom(0,100)>70){
+    if(getRandom(0,100)>endProb){
         part+=getRandomThing(partEnd,name);
     }
     part+="</p>";
@@ -112,12 +122,12 @@ function generatePart(name) {
 
 }
 function generateContent(name) {
-    let content="";
-    for(let i=0;i<3;i++){
+    let content=`<h4>给<span class="orange-text">${name}</span>一个人的彩虹屁❤</h4>`;
+    for(let i=0;i<getRandom(2,7);i++){
         console.log("段落"+i);
         content+=generatePart(name);
     }
-    content+=`<h3 class="flow-text">${name}, ${getRandomThing(qinghua,name)}</h3>`;
+    content+=`<h3 class="flow-text">${name}, ${addDot(getRandomThing(qinghua,name))}</h3>`;
     return content;
 }
 function buttonClick() {
