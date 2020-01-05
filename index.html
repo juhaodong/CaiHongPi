@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="lib/materialize/css/materialize.min.css"  media="screen,projection"/>
+    <title>彩虹屁生成器</title>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="css/index.css">
+
+
+
+</head>
+
+<body>
+
+<div class="pageContainer ">
+
+        <div class="contentArea">
+            <div class="card-panel nameSection surface" id="card">
+                <h4>彩虹屁生成器</h4>
+                <div class="input-field">
+                    <input id="name" type="text" placeholder="Ta的名字"/>
+                    <label for="name"></label>
+                </div>
+                <div class="button z-depth-1" onclick="buttonClick()">
+                    Generate!
+                </div>
+            </div>
+            <div id="contentContainer" class="card-panel content surface hide">
+                <p class="flow-text" id="content"></p>
+            </div>
+
+        </div>
+
+
+
+
+</div>
+
+
+
+<!--JavaScript at end of body for optimized loading-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script type="text/javascript" src="lib/materialize/js/materialize.min.js"></script>
+<script src="lib/jquery.js"></script>
+<script src="lib/vue.js"></script>
+<script src="data/caihongpi.js"></script>
+<script src="data/qinghua.js"></script>
+<script src="lib/JHCOMMONLIB.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
