@@ -1,3 +1,6 @@
+body{
+    background: #f0f0f0;
+}
 .pageContainer{
     display: flex;
     justify-content: center;
@@ -12,7 +15,7 @@
 }
 .nameSection{
     width: 100%;
-    min-width: 360px;
+    min-width: 280px;
     max-width: 600px;
 }
 .surface{

@@ -68,7 +68,7 @@ const startProb=30;
 const endProb=30;
 let caihongpi=CHP;
 let qinghua=QH;
-console.log(QH);
+
 
 function getRandomThing(arr,name) {
     let min=0;
