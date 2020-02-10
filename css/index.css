@@ -25,6 +25,7 @@ body{
     width: 100%;
 }
 .button{
+    margin-top: 12px;
     width: 100%;
     padding: 8px 0;
     text-align: center;

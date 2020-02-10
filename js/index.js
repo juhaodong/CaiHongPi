@@ -47,6 +47,7 @@ let sentenceStart=[
     "NAME，",
     "说老实话，",
     "小宝贝，",
+    "我有句话想说很久了，",
 
 ];
 let sentenceEnd=[
@@ -54,7 +55,7 @@ let sentenceEnd=[
     "，你一定不能想象。",
     "，你就是我的一切了。",
     "，这都是我的心里话。",
-    "，你没想到吧。",
+    ",这些感情可以说无时无刻不在折磨我",
     ""
 
 ];
@@ -68,6 +69,15 @@ const startProb=30;
 const endProb=30;
 let caihongpi=CHP;
 let qinghua=QH;
+
+
+
+var clipboard = new ClipboardJS('#copy');
+clipboard.on('success', function(e) {
+    M.toast({html: '复制成功！'});
+
+    e.clearSelection();
+});
 
 
 function getRandomThing(arr,name) {
@@ -99,7 +109,7 @@ function generateSentence(name) {
 }
 function addDot(str) {
     if(str[str.length-1]!=="。"){
-        console.log(str[str.length-1]);
+      //  console.log(str[str.length-1]);
         str+="。";
     }
     return str;
@@ -111,7 +121,7 @@ function generatePart(name) {
     }
     let sentenceCount=getRandom(8,40);
     for(let i=0;i<sentenceCount;i++){
-        console.log("句子" +i);
+       // console.log("句子" +i);
         part+=generateSentence(name);
     }
     if(getRandom(0,100)>endProb){
@@ -124,7 +134,7 @@ function generatePart(name) {
 function generateContent(name) {
     let content=`<h4>给<span class="orange-text">${name}</span>一个人的彩虹屁❤</h4>`;
     for(let i=0;i<getRandom(2,7);i++){
-        console.log("段落"+i);
+        //console.log("段落"+i);
         content+=generatePart(name);
     }
     content+=`<h3 class="flow-text">${name}, ${addDot(getRandomThing(qinghua,name))}</h3>`;

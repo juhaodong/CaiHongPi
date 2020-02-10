@@ -25,8 +25,7 @@
 
 </head>
 
-<body style="display: flex;justify-content: center">
-
+<body style="">
 <div class="pageContainer ">
 
         <div class="contentArea">
@@ -36,13 +35,29 @@
                     <input id="name" type="text" placeholder="Ta的名字"/>
                     <label for="name"></label>
                 </div>
-                <div class="button z-depth-1" onclick="buttonClick()">
+                <div class="button green z-depth-1" onclick="buttonClick()">
                     生成!
                 </div>
             </div>
             <div id="contentContainer" class="card-panel content surface hide">
                 <div id="content"></div>
-                <div class="button nameSection" onclick="buttonClick()">重新生成</div>
+                <div class="button green nameSection" onclick="buttonClick()">重新生成</div>
+                <div class="button blue nameSection" id="copy" data-clipboard-target="#content">复制生成的彩虹屁</div>
+            </div>
+            <div class="card-panel">
+                <div><span>作者：Haodong JU</span></div>
+                <div>
+                    我的知乎个人首页：
+                    <a href="https://www.zhihu.com/people/haodong-ju">达瓦里希</a>
+                </div>
+                <div>
+                    <span>Github 项目地址:
+                        <a  href="https://github.com/juhaodong/CaiHongPi">
+                            juhaodong/CaiHongPi
+                        </a>
+                    </span>
+                </div>
+
             </div>
 
         </div>
@@ -57,6 +72,7 @@
 <!--JavaScript at end of body for optimized loading-->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script type="text/javascript" src="lib/materialize/js/materialize.min.js"></script>
+<script src="lib/clipboard.min.js"></script>
 <script src="lib/jquery.js"></script>
 <script src="lib/vue.js"></script>
 <script src="data/caihongpi.js"></script>
